@@ -1,0 +1,36 @@
+<!Doctype html>
+<html>
+<head>
+    <title>Registration form</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'wall_css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <form action='/create' method='post'>
+            {% csrf_token %}
+            <label for='first_name'>First Name:</label>
+            <input type='text' name='first_name' value=""><br/>
+            <label for='last_name'>Last Name:</label>
+            <input type='text' name='last_name' value="" ><br/>
+            <label for='email'>Email:</label>
+            <input type='text' name='email' value="" ><br/>
+            <label for='password'>Password:</label>
+            <input type='password' name='password'/><br/>
+            <label for='confirmPassword'>Confirm Password:</label>
+            <input type='password' name='confirmpassword'/><br/>
+            <input type='submit' value='Register'>
+        </form>
+        <h1>Login</h1>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <label for="email">Email:</label>
+            <input type="text" name="email">
+            <label for="password">Password:</label>
+            <input type="text" name="password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>
